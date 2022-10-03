@@ -1,64 +1,62 @@
+Available in: [English](README.md) | [Русский](README_ru.md)
+
 # telegram timetable bot
+This is a useful and multifunctional telegram bot for make it easier for students to work with their timetables! This projects goal is to have everything a student will ever need. The code is written for a specific school, but it separates the logic of getting and parsing the information and displaying it. Everyone can (and is encouraged to) contribute!
 
-Это полезный и мультифункциональный телеграм бот для простой и удобной работы учеников с раписанием. Этот проект стремится обладать всем необходимым функционалом для учеников. Код-база написана, как пример решения задач конкретного учебного заведения. Структура бота устраена так, чтобы общий функционал оставался отделен от алгоритмов получения и парсинга расписания. Каждый имеет возможность повлиять и внести свой вклад через этот репозиторий.
+## Principles
 
-## Принципы
+- Don't store personal data
+- Maximum transparency 
+- Narrow focus
 
-- Не хранить личных данных
-- Максимальная прозрачность
-- Узкая направленность
+## Installing
 
-## Установка
-
-1. Установка зависимостей
-
+1. Dependencies
    ```
    npm i
    ```
 
-2. Транспиляция кода
-
+2. Compiling TypeScript
    ```
    npm run compile
    ```
 
-3. Установите значение для всех переменных среды в файле **.env**
+3. Set all the required variables in the `.env` file
 
-## Запуск
+## Launching
+The bot has two modes of operation: **Webhooks** и **Long poll**
 
-У бота есть два режима работы: **Вебхуки** и **Лонг-пол**
+> In the current implementation, the bot works with webhooks only.
 
-> В связи с нынешней реализаций бот работает через **вебхуки**
+### Webhooks
 
-### Вебхуки
-
-1. Запуск
+1. Launch
 
    ```
    npm run start
    ```
 
-### Лонг-пол
+### Long poll
 
-1. Замените эту строчку в `src/index.ts`
+1. Change this line in `src/index.ts`
 
    ```ts
    app.use(`/${secretPath}`, webhookCallback(bot, 'express'));
    ```
 
-   на
+   to
 
    ```ts
    bot.start();
    ```
 
-2. Транспиляция кода
+2. Compile code
 
    ```
    npm run compile
    ```
 
-3. Запуск
+3. Launch
 
    ```
    npm run start
