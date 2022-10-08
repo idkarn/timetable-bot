@@ -1,4 +1,4 @@
-Available in: [English](README.md) | [Русский](README_ru.md)
+Available in this languages: [English](README.md) | [Русский](README_ru.md)
 
 # telegram timetable bot
 This is a useful and multifunctional telegram bot for make it easier for students to work with their timetables! This projects goal is to have everything a student will ever need. The code is written for a specific school, but it separates the logic of getting and parsing the information and displaying it. Everyone can (and is encouraged to) contribute!
