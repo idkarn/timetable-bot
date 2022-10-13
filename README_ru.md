@@ -1,4 +1,4 @@
-Available in other languages: [English](README.md) | [Русский](README_ru.md)
+Available in this languages: [English](README.md) | [Русский](README_ru.md)
 
 # telegram timetable bot
 
