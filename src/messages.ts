@@ -8,7 +8,7 @@ const MSGS = {
 * /help направит в наш дискорд`,
   error: 'что-то ты делаешь не так',
   help: `получить помощь можно в дс
-https://discord.gg/2Y2nZG6VU2`,
+https://discord.gg/Hcd8ZNPAjc`,
   cancel: 'действие отменено',
   unpin: 'все сообщения откреплены',
   dayPick: 'выбери день',
