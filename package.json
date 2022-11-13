@@ -1,6 +1,6 @@
 {
   "name": "timetable-bot",
-  "version": "3.1.0",
+  "version": "3.1.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -9,8 +9,9 @@
     "dev": "nodemon ./src/index.ts",
     "prettify": "prettier -w src",
     "prettify:check": "prettier -c src",
-    "lint": "eslint src",
-    "lint:fix": "eslint --fix src"
+    "lint": "tsc --pretty --noEmit && eslint src",
+    "lint:fix": "eslint --fix src",
+    "prepare": "husky install"
   },
   "author": "idkarn",
   "license": "WTFPL",
@@ -34,6 +35,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.0",
     "prettier": "2.7.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.2"
@@ -41,5 +43,5 @@
   "engines": {
     "node": "18.8.0"
   },
-  "packageManager": "pnpm@7.11.0"
+  "packageManager": "pnpm@7.15.0"
 }

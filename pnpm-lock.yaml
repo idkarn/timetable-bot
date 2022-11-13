@@ -16,6 +16,7 @@ specifiers:
   google-auth-library: ^8.5.1
   googleapis: ^107.0.0
   grammy: ^1.11.0
+  husky: ^8.0.0
   prettier: 2.7.1
   redis: ^4.3.1
   ts-node: ^10.9.1
@@ -42,6 +43,7 @@ devDependencies:
   eslint-config-airbnb-typescript: 17.0.0_ormpz3f5cezs3vksgs6xr4qcde
   eslint-config-prettier: 8.5.0_eslint@8.23.0
   eslint-plugin-import: 2.26.0_iepzrjnvahcxaf6zc7cutko6om
+  husky: 8.0.2
   prettier: 2.7.1
   ts-node: 10.9.1_tphhiizkxv2hzwkunblc3hbmra
   typescript: 4.8.2
@@ -1441,6 +1443,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /husky/8.0.2:
+    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
