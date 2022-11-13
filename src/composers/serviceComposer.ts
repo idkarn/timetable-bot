@@ -1,13 +1,11 @@
 import { Composer } from 'grammy';
-import { addNewTester, canUseCode, hasUserAccess } from '../database';
-import MSGS from '../messages';
 import CustomContext from '../types/CustomContext';
 
 const composer = new Composer<CustomContext>();
 
 // FIXME: authed user can use this cmd too
 // eslint-disable-next-line consistent-return
-composer.command('code', async (ctx) => {
+/* composer.command('code', async (ctx) => {
   if (!ctx.from?.id) throw new Error('userId is missing');
   const userId = ctx.from.id;
   const code = ctx.match;
@@ -26,7 +24,7 @@ composer.command('code', async (ctx) => {
   if (!res) return ctx.reply(MSGS.error);
 
   await ctx.reply(MSGS.accessGranted);
-});
+}); */
 
 // development only for now
 composer.command('id', async (ctx) => {
