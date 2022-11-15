@@ -41,6 +41,10 @@ function startup(): void {
   bot.use(scheduleRouter);
 
   bot.use(scheduleComposer);
+
+  bot.catch((err) => {
+    console.log(err);
+  });
 }
 
 // eslint-disable-next-line import/prefer-default-export
