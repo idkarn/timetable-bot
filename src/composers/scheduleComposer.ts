@@ -73,7 +73,11 @@ composer.on('callback_query', async (ctx) => {
     console.log(e);
   }
 
-  await ctx.answerCallbackQuery(MSGS.answerSuccess);
+  try {
+    await ctx.answerCallbackQuery(MSGS.answerSuccess);
+  } catch (e) {
+    console.log(e);
+  }
   return 0 as unknown; // fix for return in arraw function
 });
 
