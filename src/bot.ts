@@ -3,7 +3,6 @@ import mainComposer from './composers/mainComposer';
 import scheduleComposer from './composers/scheduleComposer';
 import scheduleRouter from './routers/scheduleRouter';
 import SessionData from './types/SessionData';
-import 'dotenv/config';
 import serviceComposer from './composers/serviceComposer';
 import { bot } from './init';
 import checkUser from './utils/antispam';

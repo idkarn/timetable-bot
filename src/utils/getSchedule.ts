@@ -1,13 +1,9 @@
 import type { Sheet, WorkBook } from 'xlsx';
 import xlsx from 'xlsx';
+import { FOLDER_ID, MAI_FILE_ID } from '../config';
 import { drive } from '../init';
 import Lesson from '../types/Lesson';
 import getExternalSchedule from './getExternalSchedule';
-import 'dotenv/config';
-
-// TODO: add this to config file
-const { FOLDER_ID } = process.env;
-const MAI_FILE_ID = process.env.MAI_FILE_ID ?? ''; // crutch
 
 // * downloads sheet from google drive using arrayBuffer
 export async function getSheet(fildeId: string, pageNum = 0): Promise<Sheet> {

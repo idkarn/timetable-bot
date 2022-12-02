@@ -1,5 +1,6 @@
 import type { Sheet, WorkBook } from 'xlsx';
 import xlsx from 'xlsx';
+import { FOLDER_ID } from '../config';
 import { drive } from '../init';
 import { Break } from './utils';
 
@@ -7,7 +8,7 @@ export default async function getBreakSchedule(
   classNumber: number
 ): Promise<Break[]> {
   const classFolder = await drive.files.list({
-    q: `'${process.env.FOLDER_ID}' in parents and name = '${classNumber} класс'`,
+    q: `'${FOLDER_ID}' in parents and name = '${classNumber} класс'`,
   });
   if (!classFolder?.data?.files?.[0]?.id) {
     throw new Error('error folder');

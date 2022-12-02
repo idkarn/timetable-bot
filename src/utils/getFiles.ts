@@ -1,3 +1,4 @@
+import { FOLDER_ID } from '../config';
 import { drive } from '../init';
 import Data from '../types/FilesData';
 
@@ -8,7 +9,7 @@ export default async function getFiles(name: string): Promise<Data> {
   };
 
   const foldersRes = await drive.files.list({
-    q: `'${process.env.FOLDER_ID}' in parents`,
+    q: `'${FOLDER_ID}' in parents`,
   });
 
   const folders = foldersRes.data.files;
