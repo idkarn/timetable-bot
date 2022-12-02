@@ -6,7 +6,7 @@ import SessionData from './types/SessionData';
 import 'dotenv/config';
 import serviceComposer from './composers/serviceComposer';
 import { bot } from './init';
-import checkUser from './antispam';
+import checkUser from './utils/antispam';
 
 function startup(): void {
   bot.use(

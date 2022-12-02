@@ -1,6 +1,6 @@
 import { NextFunction } from 'grammy';
 import MSGS from './messages';
-import CustomContext from './types/CustomContext';
+import CustomContext from '../types/CustomContext';
 
 let lastResetTime: number = new Date().getTime();
 

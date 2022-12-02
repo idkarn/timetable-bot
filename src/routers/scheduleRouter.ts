@@ -1,6 +1,6 @@
 import { Router } from '@grammyjs/router';
 import { InlineKeyboard } from 'grammy';
-import MSGS from '../messages';
+import MSGS from '../utils/messages';
 import { bot } from '../init';
 import CustomContext from '../types/CustomContext';
 import scheduleCmdHandler from '../utils/scheduleCmdHandler';
