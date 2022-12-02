@@ -1,4 +1,3 @@
-// import fetch from "node-fetch"
 import type { Sheet, WorkBook } from 'xlsx';
 import xlsx from 'xlsx';
 import { drive } from '../init';
@@ -12,7 +11,6 @@ const MAI_FILE_ID = process.env.MAI_FILE_ID ?? ''; // crutch
 
 // * downloads sheet from google drive using arrayBuffer
 export async function getSheet(fildeId: string, pageNum = 0): Promise<Sheet> {
-  // old url style: 'https://drive.google.com/uc?id=${fildeId}&export=download'
   const res = await fetch(
     `https://docs.google.com/spreadsheets/d/${fildeId}/export`
   );
@@ -105,49 +103,3 @@ export default async function getSchedule(query: string): Promise<Lesson[]> {
 
   return data;
 }
-
-// // **** TEMP FUNC ****
-// export default async function getSchedule(query: string): Promise<Lesson[]> {
-//   const cls: number = +query.slice(-3, -1);
-//   const clsGroup: number = +query.slice(-1);
-//   const day: number = +query.slice(0, 1);
-//   console.log(cls, day);
-
-//   const fileId = process.env.FOLDER_ID;
-
-//   const res = await fetch(
-//     `https://drive.google.com/uc?id=${fileId}&export=download`
-//   );
-//   const arrayBuffer = await res.arrayBuffer();
-
-//   const array: Uint8Array = new Uint8Array(arrayBuffer);
-//   const workbook: WorkBook = xlsx.read(array, { type: 'array' });
-//   const sheet: Sheet = workbook.Sheets[workbook.SheetNames[0]];
-
-//   const data: Lesson[] = [];
-
-//   const offset = 4 * clsGroup;
-
-//   for (let rowNum = 2; rowNum <= 9; rowNum++) {
-//     const title: string =
-//       sheet[
-//         xlsx.utils.encode_cell({ r: rowNum + 11 * (day - 1), c: 1 + offset })
-//       ]?.v;
-//     const group: string =
-//       sheet[
-//         xlsx.utils.encode_cell({ r: rowNum + 11 * (day - 1), c: 2 + offset })
-//       ]?.v;
-//     const room: string =
-//       sheet[
-//         xlsx.utils.encode_cell({ r: rowNum + 11 * (day - 1), c: 4 + offset })
-//       ]?.v;
-//     data.push({
-//       title: title || 'Окно',
-//       group: group ?? '',
-//       number: rowNum - 1,
-//       room: room ?? '',
-//     });
-//   }
-
-//   return data;
-// }

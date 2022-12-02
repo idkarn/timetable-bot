@@ -11,11 +11,7 @@ async function classSelectHandler(ctx: CustomContext) {
   if (!ctx.callbackQuery) return;
   if (!ctx.callbackQuery?.data) return;
   const classNumber: string = ctx.callbackQuery?.data;
-  // ctx.session.user.class = classNumber
 
-  // const { name } = ctx.session.user;
-
-  // const res: Data = await getFiles(name);
   const q: string = ctx.session.user.name + classNumber;
   const inlineKeyboard = new InlineKeyboard()
     .text('Понедельник', `1${q}`)

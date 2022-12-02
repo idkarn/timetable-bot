@@ -1,7 +1,6 @@
 import type { Sheet, WorkBook } from 'xlsx';
 import xlsx from 'xlsx';
 import { drive } from '../init';
-// import fetch from "node-fetch";
 import { Break } from './utils';
 
 export default async function getBreakSchedule(
