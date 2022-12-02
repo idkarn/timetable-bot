@@ -1,6 +1,6 @@
 {
   "name": "timetable-bot",
-  "version": "3.1.4",
+  "version": "3.1.8",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -22,7 +22,6 @@
     "google-auth-library": "^8.5.1",
     "googleapis": "^107.0.0",
     "grammy": "^1.11.0",
-    "redis": "^4.3.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -41,7 +40,7 @@
     "typescript": "^4.8.2"
   },
   "engines": {
-    "node": "18.8.0"
+    "node": "18.12.1"
   },
   "packageManager": "pnpm@7.15.0"
 }

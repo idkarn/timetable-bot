@@ -33,7 +33,6 @@ async function getExternalSchedule(
       sheet[utils.encode_cell({ r: row, c })]?.v;
     const room: string | undefined =
       sheet[utils.encode_cell({ r: row + 1, c })]?.v;
-    // const teacher: string = sheet[utils.encode_cell({ r: row + 2, c })]?.v;
 
     if (title || room) {
       data.push({

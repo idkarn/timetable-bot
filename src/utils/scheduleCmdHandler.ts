@@ -1,17 +1,10 @@
 import { InlineKeyboard } from 'grammy';
-import MSGS from '../messages';
+import MSGS from './messages';
 import { bot } from '../init';
 import CustomContext from '../types/CustomContext';
 import Data from '../types/FilesData';
 import getFiles from './getFiles';
 import { classEmoji } from './utils';
-
-// const classes = [
-//   [0, 1],
-//   [0, 1, 2],
-//   [0, 1, 2],
-//   [0, 1, 2],
-// ];
 
 export default async function handler(ctx: CustomContext): Promise<void> {
   let msg = MSGS.nameInput;
@@ -46,8 +39,6 @@ export default async function handler(ctx: CustomContext): Promise<void> {
       msg = MSGS.dayPick;
       payload = { reply_markup: inlineKeyboard };
     } else if (res.length > 1 && res.length === Object.keys(res.files).length) {
-      // TEST: 'Ксения'
-
       const classes = Object.entries(res.files);
       const keyboard = new InlineKeyboard();
 

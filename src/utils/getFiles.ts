@@ -1,3 +1,4 @@
+import { FOLDER_ID } from '../config';
 import { drive } from '../init';
 import Data from '../types/FilesData';
 
@@ -8,7 +9,7 @@ export default async function getFiles(name: string): Promise<Data> {
   };
 
   const foldersRes = await drive.files.list({
-    q: `'${process.env.FOLDER_ID}' in parents`,
+    q: `'${FOLDER_ID}' in parents`,
   });
 
   const folders = foldersRes.data.files;
@@ -27,7 +28,6 @@ export default async function getFiles(name: string): Promise<Data> {
       const classNumber = Number(
         folder.name?.slice(0, folder.name.indexOf('класс') - 1)
       );
-      // let name = String(files[0].name?.slice(0, -5))
 
       data.files[classNumber] = String(files[0].id); // TODO: make test for undefined
     }

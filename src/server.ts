@@ -1,6 +1,5 @@
 import express, { Application } from 'express';
 import type { Request, Response } from 'express';
-import 'dotenv/config';
 
 const app: Application = express();
 

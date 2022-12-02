@@ -1,35 +1,36 @@
 import { Composer } from 'grammy';
+import { bot } from '../init';
+import MSGS from '../utils/messages';
 import CustomContext from '../types/CustomContext';
+import delay from '../utils/delay';
 
 const composer = new Composer<CustomContext>();
-
-// FIXME: authed user can use this cmd too
-// eslint-disable-next-line consistent-return
-/* composer.command('code', async (ctx) => {
-  if (!ctx.from?.id) throw new Error('userId is missing');
-  const userId = ctx.from.id;
-  const code = ctx.match;
-
-  if (await hasUserAccess(userId)) {
-    if (!code) {
-      return ctx.reply(`${MSGS.usersCode} ${String(userId).slice(3, 9)}`);
-    }
-    return ctx.reply(MSGS.error);
-  }
-  if (!code) return ctx.reply(MSGS.sendCode);
-
-  if (!(await canUseCode(code))) return ctx.reply(MSGS.wrongCode);
-
-  const res = await addNewTester(userId, code); // 2nd param is strange
-  if (!res) return ctx.reply(MSGS.error);
-
-  await ctx.reply(MSGS.accessGranted);
-}); */
 
 // development only for now
 composer.command('id', async (ctx) => {
   const id = String(ctx.from?.id);
   await ctx.reply(`${id} ${ctx.msg.message_id}`);
+});
+
+composer.command('help', async (ctx) => {
+  await ctx.reply(MSGS.help);
+});
+
+composer.command('clear', async (ctx) => {
+  await bot.api.unpinAllChatMessages(ctx.chat.id);
+
+  const reportMsg = await ctx.reply(MSGS.unpin, {
+    reply_markup: { remove_keyboard: true },
+  });
+
+  await delay(2000);
+
+  await bot.api.deleteMessage(ctx.chat.id, reportMsg.message_id);
+});
+
+composer.command('cancel', async (ctx) => {
+  ctx.session.route = '';
+  await ctx.reply(MSGS.cancel);
 });
 
 export default composer;

@@ -1,6 +1,6 @@
 import { Router } from '@grammyjs/router';
 import { InlineKeyboard } from 'grammy';
-import MSGS from '../messages';
+import MSGS from '../utils/messages';
 import { bot } from '../init';
 import CustomContext from '../types/CustomContext';
 import scheduleCmdHandler from '../utils/scheduleCmdHandler';
@@ -11,11 +11,7 @@ async function classSelectHandler(ctx: CustomContext) {
   if (!ctx.callbackQuery) return;
   if (!ctx.callbackQuery?.data) return;
   const classNumber: string = ctx.callbackQuery?.data;
-  // ctx.session.user.class = classNumber
 
-  // const { name } = ctx.session.user;
-
-  // const res: Data = await getFiles(name);
   const q: string = ctx.session.user.name + classNumber;
   const inlineKeyboard = new InlineKeyboard()
     .text('Понедельник', `1${q}`)
