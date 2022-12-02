@@ -32,11 +32,7 @@ function startup(): void {
 
   bot.use(mainComposer);
 
-  // * [MARKETING MODULE] middleware for /code PROCESSING
   bot.use(serviceComposer);
-
-  // * [MARKETING MODULE] middleware for checking users
-  // bot.use(authMiddleware);
 
   bot.use(scheduleRouter);
 
