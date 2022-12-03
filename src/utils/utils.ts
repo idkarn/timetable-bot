@@ -83,3 +83,42 @@ export function getClassNumberBtns(data: User[]): InlineKeyboardButton[][] {
 
   return btns;
 }
+
+function checkTime(expected: string) {
+  const actualDate = new Date();
+  return actualDate >= new Date(String(actualDate).slice(0, 16) + expected);
+}
+// returns [isItLessonTime, lessonIndex]
+export function getIndexByTime(): [boolean, number] {
+  if (checkTime('17:45')) return [false, -1];
+  if (checkTime('17:00')) return [true, 8];
+  if (checkTime('16:50')) return [false, 7];
+  if (checkTime('16:05')) return [true, 7];
+  if (checkTime('15:55')) return [false, 6];
+  if (checkTime('15:10')) return [true, 6];
+  if (checkTime('14:50')) return [false, 5];
+  if (checkTime('14:05')) return [true, 5];
+  if (checkTime('13:45')) return [false, 4];
+  if (checkTime('13:00')) return [true, 4];
+  if (checkTime('12:50')) return [false, 3];
+  if (checkTime('12:05')) return [true, 3];
+  if (checkTime('11:45')) return [false, 2];
+  if (checkTime('11:00')) return [true, 2];
+  if (checkTime('10:40')) return [false, 1];
+  if (checkTime('09:55')) return [true, 1];
+  if (checkTime('09:45')) return [false, 0];
+  if (checkTime('09:00')) return [true, 0];
+  return [false, -1];
+}
+
+/*
+9:00	9:45
+9:55	10:40
+11:00	11:45
+12:05	12:50
+13:00	13:45
+14:05	14:50
+15:10	15:55
+16:05	16:50
+17:00	17:45	
+*/

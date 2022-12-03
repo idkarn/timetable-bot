@@ -21,4 +21,9 @@ const auth = new GoogleAuth({
 });
 const drive = google.drive({ version: 'v3', auth });
 
-export { drive, bot };
+interface Query {
+  [userId: string]: number;
+}
+const chats: Query = {};
+
+export { drive, bot, chats };
