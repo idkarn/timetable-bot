@@ -54,9 +54,11 @@ async function updateWidgets(): Promise<void> {
       const name = btn.callback_data.slice(1); // student's name without day
       const data = await getSchedule(`${day}${name}`);
 
-      const [isItlessonTime, idx] = getIndexByTime();
+      const [isItlessonTime, idx, remainingMinutes] = getIndexByTime();
       const msgContent: string =
-        isItlessonTime || idx === -1 ? data[idx].title : 'чил';
+        isItlessonTime || idx === -1
+          ? `${data[idx].title} | ${remainingMinutes} мин`
+          : 'чил';
 
       try {
         bot.api.editMessageText(userId, msgId, msgContent);

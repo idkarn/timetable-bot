@@ -88,27 +88,36 @@ function checkTime(expected: string) {
   const actualDate = new Date();
   return actualDate >= new Date(String(actualDate).slice(0, 16) + expected);
 }
+function getTimeDifferent(time: string): number {
+  const actualDate = new Date();
+  return (
+    (new Date(String(actualDate).slice(0, 16) + time).getTime() -
+      actualDate.getTime()) /
+    1000 /
+    60
+  );
+}
 // returns [isItLessonTime, lessonIndex]
-export function getIndexByTime(): [boolean, number] {
-  if (checkTime('17:45')) return [false, -1];
-  if (checkTime('17:00')) return [true, 8];
-  if (checkTime('16:50')) return [false, 7];
-  if (checkTime('16:05')) return [true, 7];
-  if (checkTime('15:55')) return [false, 6];
-  if (checkTime('15:10')) return [true, 6];
-  if (checkTime('14:50')) return [false, 5];
-  if (checkTime('14:05')) return [true, 5];
-  if (checkTime('13:45')) return [false, 4];
-  if (checkTime('13:00')) return [true, 4];
-  if (checkTime('12:50')) return [false, 3];
-  if (checkTime('12:05')) return [true, 3];
-  if (checkTime('11:45')) return [false, 2];
-  if (checkTime('11:00')) return [true, 2];
-  if (checkTime('10:40')) return [false, 1];
-  if (checkTime('09:55')) return [true, 1];
-  if (checkTime('09:45')) return [false, 0];
-  if (checkTime('09:00')) return [true, 0];
-  return [false, -1];
+export function getIndexByTime(): [boolean, number, number] {
+  if (checkTime('17:45')) return [false, -1, 0];
+  if (checkTime('17:00')) return [true, 8, getTimeDifferent('17:45')];
+  if (checkTime('16:50')) return [false, 7, getTimeDifferent('17:00')];
+  if (checkTime('16:05')) return [true, 7, getTimeDifferent('16:50')];
+  if (checkTime('15:55')) return [false, 6, getTimeDifferent('16:05')];
+  if (checkTime('15:10')) return [true, 6, getTimeDifferent('15:55')];
+  if (checkTime('14:50')) return [false, 5, getTimeDifferent('15:10')];
+  if (checkTime('14:05')) return [true, 5, getTimeDifferent('14:50')];
+  if (checkTime('13:45')) return [false, 4, getTimeDifferent('14:05')];
+  if (checkTime('13:00')) return [true, 4, getTimeDifferent('13:45')];
+  if (checkTime('12:50')) return [false, 3, getTimeDifferent('13:00')];
+  if (checkTime('12:05')) return [true, 3, getTimeDifferent('12:50')];
+  if (checkTime('11:45')) return [false, 2, getTimeDifferent('12:05')];
+  if (checkTime('11:00')) return [true, 2, getTimeDifferent('11:45')];
+  if (checkTime('10:40')) return [false, 1, getTimeDifferent('11:00')];
+  if (checkTime('09:55')) return [true, 1, getTimeDifferent('10:40')];
+  if (checkTime('09:45')) return [false, 0, getTimeDifferent('09:55')];
+  if (checkTime('09:00')) return [true, 0, getTimeDifferent('09:45')];
+  return [false, -1, 0];
 }
 
 /*
